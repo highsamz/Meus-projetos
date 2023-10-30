@@ -5,10 +5,12 @@ import com.med.voll.api.endereco.EnderecoEntidadePaciente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "pacientes")
 @Entity(name = "Pacientes")
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
