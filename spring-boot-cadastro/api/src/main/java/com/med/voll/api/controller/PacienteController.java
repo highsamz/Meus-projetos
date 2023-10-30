@@ -1,9 +1,6 @@
 package com.med.voll.api.controller;
 
-import com.med.voll.api.paciente.DadosCadastroPacientes;
-import com.med.voll.api.paciente.DadosListagemPacientes;
-import com.med.voll.api.paciente.PacienteEntidade;
-import com.med.voll.api.paciente.PacienteRepository;
+import com.med.voll.api.paciente.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,21 +12,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cadastro")
+@RequestMapping("/pacientes")
 public class PacienteController {
 
     @Autowired
     PacienteRepository repository;
 
-    @PostMapping("/pacientes")
+    @PostMapping("/cadastro")
     @Transactional
     public DadosCadastroPacientes cadastroPaciente(@RequestBody @Valid DadosCadastroPacientes dados) {
         repository.save(new PacienteEntidade(dados));
         return dados;
     }
 
-    @GetMapping("/pacientes/listar")
+    @GetMapping("/listar")
     public Page<DadosListagemPacientes> listagemPaciente(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao){
         return repository.findAll(paginacao).map(DadosListagemPacientes::new);
+    }
+
+    @PutMapping("atualizar")
+    @Transactional
+    public void atualizacaoPaciente (@RequestBody @Valid DadosAtualizacaoPaciente dados){
+        var pacienteEntidade = repository.getReferenceById(dados.id());
+        pacienteEntidade.atualizarDadosPaciente(dados);
+
     }
 }

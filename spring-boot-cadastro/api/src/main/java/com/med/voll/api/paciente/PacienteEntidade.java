@@ -1,6 +1,7 @@
 package com.med.voll.api.paciente;
 
 
+import com.med.voll.api.endereco.DadosEnderecoPaciente;
 import com.med.voll.api.endereco.EnderecoEntidadePaciente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,5 +33,22 @@ public class PacienteEntidade {
         this.documento = dados.documento();
         this.telefone = dados.telefone();
         this.endereco = new EnderecoEntidadePaciente(dados.enderecop());
+    }
+
+    public void atualizarDadosPaciente(DadosAtualizacaoPaciente dados) {
+
+        if (dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if (dados.email() != null){
+            this.email = dados.email();
+        }
+        if (dados.telefone() != null){
+            this.telefone = dados.telefone();
+        }
+        if (dados.endereco() != null){
+            this.endereco.atualizarDadosPaciente(dados.endereco());
+        }
+
     }
 }

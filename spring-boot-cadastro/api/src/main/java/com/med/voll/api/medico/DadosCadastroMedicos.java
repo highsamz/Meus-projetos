@@ -17,6 +17,7 @@ import jakarta.validation.constraints.Pattern;
  * DTO para receber as informações recebidas da requisição e posteriormente salvar no banco
  */
 public record DadosCadastroMedicos(
+
         @NotBlank
         String nome,
         @NotBlank
