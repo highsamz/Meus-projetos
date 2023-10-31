@@ -9,12 +9,11 @@ import jakarta.validation.constraints.Pattern;
 
 /**
  *
- * @param nome
  * @param email
+ * @param telefone
  * @param crm
  * @param especialidade
  * @param endereco
- * DTO para receber as informações recebidas da requisição e posteriormente salvar no banco
  */
 public record DadosCadastroMedicos(
 

@@ -19,6 +19,7 @@ public class PacienteEntidade {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private boolean status;
     private String nome;
     private String email;
     private String documento;
@@ -28,6 +29,7 @@ public class PacienteEntidade {
     private EnderecoEntidadePaciente endereco;
 
     public PacienteEntidade(DadosCadastroPacientes dados){
+        this.status = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.documento = dados.documento();
@@ -50,5 +52,10 @@ public class PacienteEntidade {
             this.endereco.atualizarDadosPaciente(dados.endereco());
         }
 
+    }
+
+    public void excluirPaciente() {
+        this.status = false;
+        System.out.println("Funcionou a deleção");
     }
 }

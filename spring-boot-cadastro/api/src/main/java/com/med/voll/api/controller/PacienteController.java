@@ -9,8 +9,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
@@ -27,14 +25,19 @@ public class PacienteController {
 
     @GetMapping("/listar")
     public Page<DadosListagemPacientes> listagemPaciente(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListagemPacientes::new);
+        return repository.findAllByStatusTrue(paginacao).map(DadosListagemPacientes::new);
     }
 
-    @PutMapping("atualizar")
+    @PutMapping("/atualizar")
     @Transactional
     public void atualizacaoPaciente (@RequestBody @Valid DadosAtualizacaoPaciente dados){
         var pacienteEntidade = repository.getReferenceById(dados.id());
         pacienteEntidade.atualizarDadosPaciente(dados);
+    }
 
+    @DeleteMapping("/deletar/{id}")
+    public void deletarPaciente(@PathVariable Long id){
+        var pacienteEntidade = repository.getReferenceById(id);
+        pacienteEntidade.excluirPaciente();
     }
 }

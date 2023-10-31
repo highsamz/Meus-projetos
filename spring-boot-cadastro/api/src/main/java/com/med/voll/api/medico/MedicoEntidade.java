@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 public class MedicoEntidade {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Boolean status;
     private Long id;
     private String nome;
     private String email;
@@ -30,7 +31,7 @@ public class MedicoEntidade {
     private EntidadeEnderecoMedico endereco;
 
     public MedicoEntidade(DadosCadastroMedicos dados) {
-
+        this.status = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
