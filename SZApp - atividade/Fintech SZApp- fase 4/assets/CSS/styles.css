@@ -1,0 +1,89 @@
+body {
+    background-color: #F2F4F8; /* Cor de fundo azul acinzentado */
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    color: #0D47A1; /* Cor azul escuro */
+  }
+  
+  .navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navigation li {
+    margin-left: 10px;
+  }
+  
+  .navigation a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #0D47A1; /* Cor azul escuro */
+    color: #ffffff; /* Cor branca para os demais itens */
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .login a {
+    background-color: transparent;
+    color: #0D47A1; /* Cor azul escuro */
+    border: 1px solid #0D47A1; /* Cor azul escuro */
+  }  
+  
+  
+
+.font1 {
+    font-size: 32px;
+    font-family: "Arial", sans-serif;
+    color: #ffffff;
+  }
+  
+  .font2 {
+    font-size: 24px;
+    font-family: "Tahoma", sans-serif;
+    color: #ffffff;
+  }
+  
+  .font3 {
+    font-size: 18px;
+    font-family: "Verdana", sans-serif;
+    color: #ffffff;
+  }
+  
+  .advertisement {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+  }
+  
+  .black-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    background-color: #000000;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  
