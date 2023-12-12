@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/vollmed_api
+    username: samuel
+    password: samuel021
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
